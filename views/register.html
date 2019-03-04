@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+
+<body>
+  <nav>
+    <nav class="nav">
+      <div class="text text-center">
+        Wellcome in registration
+      </div>
+    </nav>
+    <form id="SignInForm" method='POST' action='/'>
+      <div class="text text-center">
+        Input Username
+      </div>
+      <input id="InputUsername" class="input-block-s" type="text" name="username" placeholder="username">
+      <div id="ErrorMsg" class="msg-false text-center">Username already taken</div>
+      <div class="text text-center">
+        Input Password
+      </div>
+      <input id="InputUserPass" class="input-block" type="text" name="password" placeholder="password">
+      <br>
+      <div class="text text-center">
+        Select Gender
+      </div>
+      <select class="input-block" id="Gender" name="gender">
+     <option value="Select">Select</option>
+     <option value="Male">Male</option>
+     <option value="Female">Female</option>
+     <option value="Other">Other</option>
+   </select>
+
+      <div class="input-block">
+        <input id="InputTandC" class="input-inline-block" type="checkbox"> I agree to the Terms and Conditions
+      </div>
+      <button id="RegisterButton" class="input-block" type="submit" value="submit">Register</button>
+    </form>
+
+    <div class="text-center">
+      Already registered? Click <a href="https://the-Joke-.codeanyapp.com">here</a>.
+    </div>
+    <script src="/js/register.js"></script>
+</body>

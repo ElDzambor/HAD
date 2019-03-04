@@ -1,0 +1,158 @@
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.nav {
+  height: 150px;
+}
+
+.text {
+  font-family: helvetica;
+  font-size: 25px;
+}
+
+.text-list {
+  font-family: helvetica;
+  font-size: 25px;
+  text-align: left;
+  vertical-align:left ;
+  width: 400px;
+}
+
+.text-center {
+  margin: auto;
+  text-align: center;
+  vertical-align: middle;
+  position: relative;
+}
+
+.input-block {
+  display: block;
+  margin: auto;
+  text-align: center;
+  vertical-align: middle;
+  position: relative;
+  height: 40px;
+  width: 200px;
+  font-family: helvetica;
+  font-size: 20px;
+  margin-top: 10px;
+  margin-bottom: 25px;
+}
+
+.input-block-s {
+  display: block;
+  margin: auto;
+  text-align: center;
+  vertical-align: middle;
+  position: relative;
+  height: 40px;
+  width: 200px;
+  font-family: helvetica;
+  font-size: 20px;
+  margin-top: 10px;
+  margin-bottom: 0px;
+}
+
+.input-inline-block {
+  display: inline-block;
+  margin: auto;
+  text-align: center;
+  vertical-align: middle;
+  position: relative;
+  height: 20px;
+  width: 20px;
+  font-family: helvetica;
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.button {
+  border: 1px solid #0066cc;
+  background-color: #0099cc;
+  color: #ffffff;
+  padding: 5px 10px;
+}
+
+/* .button:hover {
+  border: 1px solid red;
+  background-color: #00aacc;
+  color: #ffffff;
+  padding: 5px 10px;
+}*/
+
+.button-disabled,
+.button[disabled] {
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+} 
+
+.msg-true {
+  padding: 10px;
+  margin: 10px 0;
+  color: red;
+}
+
+.msg-false {
+  visibility: hidden;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+/*.hidden {
+  display: none;
+}
+.page {
+  height: 600px;
+  width: 400px;
+  background-color: #DCDCDC;
+
+}
+/* ========================text========================*/
+
+/*.text {
+  font-family: helvetica;
+  font-size: 30px;
+}
+.text-s {
+  font-family: helvetica;
+  font-size: 15px;
+}
+.center {
+  text-align: center;
+  vertical-align: middle;
+  line-height: 600px;
+}
+.center-v{
+  text-align: center;
+  line-height: 20px;
+}
+.smallprint{
+  text-align: center;
+  font-size: 10px;
+  line-height: 10px;
+
+}
+
+/* ========================msgs========================*/
+
+/*.msg-error,
+.msg-success {
+  padding: 10px;
+  margin: 10px 0;
+  color: #fff;
+}
+.msg-error {
+  background-color: red;
+}
+.msg-success {
+  background-color: blue;
+}
+*/

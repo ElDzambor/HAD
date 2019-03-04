@@ -1,0 +1,14 @@
+mysql- o
+
+mysql -u root -p
+
+ u/p for mysql
+pest/pestpass
+
+on msql switched off
+mysqldump App -uroot -p > bases/app.sql
+
+npm i
+
+
+

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+
+<body>
+  <nav>
+    <nav class="nav">
+      <div class="text text-center">
+        Welcome {{title}} {{user}}!
+        <br> Level 1 Exp 0
+        <br> Here is your list for today:
+      </div>
+    </nav>
+
+    <ul class ="input-block">
+      {% for task in list %}
+      <dt class="text-list">{{ task.id }}. {{ task.title }} Exp 1</dt>
+      {% else %}
+      <dt>This would display if the 'task list' array was empty</dt>
+      {% endfor %}
+    </ul>
+
+    <script src="/js/main.js"></script>
+</body>

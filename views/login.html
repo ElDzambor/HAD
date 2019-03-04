@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+
+<body>
+  <nav>
+    <nav class="nav">
+      <div class="text text-center">
+        Please Login
+      </div>
+    </nav>
+    <form id="LogInForm" method='POST' action='/'>
+      <div class="text text-center">
+        Input Username
+      </div>
+      <input id="InputUsername" class="input-block-s" type="text" name="username" placeholder="username">
+      <div class="msg-false text-center">Just keep swimming</div>
+      <div class="text text-center">
+        Input Password
+      </div>
+      <input id="InputUserPass" class="input-block-s" type="text" name="password" placeholder="password">
+      <div id="ErrorMsg" class="msg-false text-center">Username/Password don't match</div>
+      <button id="LoginButton" class="input-block" type="submit" value="submit">Login</button>
+    </form>
+
+    <div class="text-center">
+      Not registered? Click <a href="https://the-Joke-.codeanyapp.com/register">here</a>.
+    </div>
+    <script src="/js/login.js"></script>
+</body>
