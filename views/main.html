@@ -19,13 +19,17 @@
       </div>
     </nav>
 
-    <ul class ="input-block">
+    <ul class ="input-block" style="height: auto; list-style-type: none;">
       {% for task in list %}
-      <dt class="text-list">{{ task.id }}. {{ task.title }} Exp 1</dt>
+      <li class="text-list">{{ task.id }}. {{ task.title }} Exp 1</li>
       {% else %}
-      <dt>This would display if the 'task list' array was empty</dt>
+      <li>List for temporary users  is unfortunatly empty</li>
       {% endfor %}
     </ul>
 
+    
+      <div class="text-center">
+      Go back to <a href="https://had-undefined.codeanyapp.com/">Login</a> or <a href="https://had-undefined.codeanyapp.com/register">Register</a>.
+    </div>
     <script src="/js/main.js"></script>
 </body>

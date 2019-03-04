@@ -50,9 +50,17 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 
+// ===  list of subpages  ===
+// === register page === 
 app.get('/register', (req, res) => {
   res.render('register.html');
 });
+// === main page ===
+/* 
+uses data from login/register page 
+and displays list connected to the data 
+(if the list exists)
+*/
 app.get('/main', (req, res) => {
   var title = currentTitle;
   var user = currentUser;
@@ -66,19 +74,27 @@ app.get('/main', (req, res) => {
   });
 });
 
-
+// === login page ===//
 app.get('/', (req, res) => {
   res.render('login.html');
 });
+
+
+// === page that posts the data for others ===
 app.post('/form_data', (req, res) => {
-  //console.log(req.body.gender)
+  // console.log(req.body.gender)
   // req.body is where all the data sent from the browser live
+  /*  data from register page 
+  if username is not in the system, server will allow for temprary registration
+  (permanent registration in plans)
+  and use the data in main page
+  */
   if (req.body.source === "register") {
     var userNameMysqlCheck = "SELECT `UserName` FROM `Users` WHERE `UserName` = '" + req.body.username + "';";
     connection.query(userNameMysqlCheck, function(err, results, fields) {
       console.log('table', results);
       if (results.length === 0) {
-        list=[];
+        list = []; 
         currentTitle = req.body.title;
         currentUser = req.body.username;
         console.log(currentTitle, currentUser);
@@ -89,6 +105,12 @@ app.post('/form_data', (req, res) => {
       }
     });
   }
+  
+  // data from login page
+  /*  data from login page 
+  if username and password are correct server will  allow to login
+  and push the data to main page
+    */
   if (req.body.source === "login") {
     var userMysqlCheck = "SELECT `UserTitle`,`UserName`,`UserPass` FROM `Users` WHERE `UserName` = '" + req.body.username + "' AND `UserPass` = '" + req.body.password + "';";
     connection.query(userMysqlCheck, function(err, results, fields) {

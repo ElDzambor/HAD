@@ -27,14 +27,23 @@ var data = {
 
 //--- Page Control ---//
 
+// login button disabled at the start
 loginButton.disabled = true;
 
+/* event listeners  for  username and password  
+   run  validation function which checks if input fields are not empty
+*/
 inputUserPass.addEventListener('change', function(event) {
   validateRegistration();
 })
 inputUsername.addEventListener('change', function(event) {
   validateRegistration();
 })
+
+/* submit function sends the data to the server for validation,
+   retrieves response from server and acts on it
+*/
+submit();
 
 function validateRegistration() {
   data.formInputs.username = inputUsername.value;
@@ -49,19 +58,22 @@ function validateRegistration() {
 
   }
 }
-submit();
 
+  
 function submit() {
   logInForm.addEventListener('submit', function(event) {
     event.preventDefault();
     console.log('Submit!');
     console.log('JSON input', JSON.stringify(data.formInputs))
+    // submit function sends the data to the server for validation,
     fetch('/form_data', {
       method: 'post',
       headers: new Headers({
         "Content-Type": "application/json"
       }),
       body: JSON.stringify(data.formInputs)
+// depands on server response function displays error msg 
+// or redirect to main page  
     }).then(function(response) {
       console.log(response)
       return response.json()
@@ -84,36 +96,3 @@ function submit() {
     });
   })
 }
-
-
-/*function validateRegistration(username, password, gender, tandc) {
-  // validation
-  if (username === "" || password === "" || gender === "Select" || !tandc) {
-    console.log("not valid");
-    //  errorMsg.classList.remove('hidden');
-    //  successMsg.classList.add('hidden');
-  } else {
-    var user = users.find(function(u) {
-      return u.name === username;
-    })
-    if (user == undefined) {
-      var newUser = {
-        name: username,
-        pass: password,
-        gend: gender
-      }
-      var currentUser = {
-        name: username,
-        gend: gender
-      }
-      currentUser.name = newUser.name;
-      currentUser.gend = newUser.gend;
-      users.push(newUser);
-      loggedInUserInfo.innerHTML = `Hi ${currentUser.name}`;
-      console.log("userslist:", users, "current user:", currentUser.name);
-      GoToSummary();
-    } else {
-      console.log("username taken");
-    }
-  }
-}*/

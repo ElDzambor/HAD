@@ -17,11 +17,16 @@
   font-size: 25px;
 }
 
+.text-small {
+  font-family: helvetica;
+  font-size: 12px;
+}
+
 .text-list {
   font-family: helvetica;
   font-size: 25px;
   text-align: left;
-  vertical-align:left ;
+  vertical-align: left;
   width: 400px;
 }
 
@@ -92,7 +97,7 @@
   border: 1px solid #999999;
   background-color: #cccccc;
   color: #666666;
-} 
+}
 
 .msg-true {
   padding: 10px;

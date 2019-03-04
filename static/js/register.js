@@ -31,8 +31,11 @@ var data = {
 // Fetch API -> POST (form.Inputs)
 
 //--- Page Control ---//
-
+// register button disabled at the start
 registerButton.disabled = true;
+/* event listeners  for  username and password, gender select and TaC confirmation 
+   run  validation function which checks if input fields are not empty or not selected
+*/
 inputTandC.addEventListener('click', function(event) {
   validateRegistration();
 })
@@ -46,6 +49,12 @@ inputUsername.addEventListener('change', function(event) {
   validateRegistration();
 })
 
+/* submit function sends the data to the server for validation,
+   retrieves response from server and acts on it
+*/
+submit();
+
+// function checks if all fields fulfil registration minimum
 function validateRegistration() {
   data.formInputs.username = inputUsername.value;
   data.formInputs.password = inputUserPass.value;
@@ -55,6 +64,7 @@ function validateRegistration() {
     console.log([data.formInputs.username, data.formInputs.password, data.formInputs.gender, data.formInputs.tandc]);
     registerButton.disabled = true;
     console.log("not valid");
+  // if all the data fulfil minimal registration requiements, additional data in form of "title" is added
   } else {
     console.log([data.formInputs.username, data.formInputs.password, data.formInputs.gender, data.formInputs.tandc]);
     if (data.formInputs.gender === "Male") {
@@ -72,19 +82,21 @@ function validateRegistration() {
     console.log(data.formInputs.title);
   }
 }
-submit();
-
+// submit function sends the data to the server for validation,
 function submit() {
   signInForm.addEventListener('submit', function(event) {
     event.preventDefault();
     console.log('Submit!');
     console.log('JSON input', JSON.stringify(data.formInputs))
+    // submit function sends the data to the server for validation
     fetch('/form_data', {
       method: 'post',
       headers: new Headers({
         "Content-Type": "application/json"
       }),
       body: JSON.stringify(data.formInputs)
+     // depands on server response function displays error msg 
+     // or redirect to main page  
     }).then(function(response) {
       console.log(response)
       return response.json()
@@ -98,7 +110,7 @@ function submit() {
         errorMsg.classList.remove('msg-true');
         errorMsg.classList.add('msg-false');
         console.log('user loged in redirecting to main');
-        window.location.href = "https://the-joke-.codeanyapp.com/main";
+        window.location.href = "https://had-undefined.codeanyapp.com/main";
       }
     }).catch(function(err) {
       console.log('err')
@@ -107,34 +119,3 @@ function submit() {
 }
 
 
-/*function validateRegistration(username, password, gender, tandc) {
-  // validation
-  if (username === "" || password === "" || gender === "Select" || !tandc) {
-    console.log("not valid");
-    //  errorMsg.classList.remove('hidden');
-    //  successMsg.classList.add('hidden');
-  } else {
-    var user = users.find(function(u) {
-      return u.name === username;
-    })
-    if (user == undefined) {
-      var newUser = {
-        name: username,
-        pass: password,
-        gend: gender
-      }
-      var currentUser = {
-        name: username,
-        gend: gender
-      }
-      currentUser.name = newUser.name;
-      currentUser.gend = newUser.gend;
-      users.push(newUser);
-      loggedInUserInfo.innerHTML = `Hi ${currentUser.name}`;
-      console.log("userslist:", users, "current user:", currentUser.name);
-      GoToSummary();
-    } else {
-      console.log("username taken");
-    }
-  }
-}*/
