@@ -78,6 +78,7 @@ app.post('/form_data', (req, res) => {
     connection.query(userNameMysqlCheck, function(err, results, fields) {
       console.log('table', results);
       if (results.length === 0) {
+        list=[];
         currentTitle = req.body.title;
         currentUser = req.body.username;
         console.log(currentTitle, currentUser);
